@@ -18,7 +18,8 @@ namespace Program1
 
             // Wait for user to acknowledge the results.
             Console.WriteLine("Press Enter to terminate...");
-
+            Console.Read();
+            
         }
     }
 }
