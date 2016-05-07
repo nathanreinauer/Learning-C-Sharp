@@ -11,28 +11,15 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            int i = 0;
-
-            while (i < 10)
+            string guess;
+            do
             {
-                if (i == 7)
-                {
-                    i++;
-                    continue;
-                }
+                Console.WriteLine("Guess a number ");
+                guess = Console.ReadLine();
 
-                if (i == 9)
-                {
-                    break;
-                }
 
-                if ((i % 2) > 0)
-                {
-                    Console.WriteLine(i);
-                }
-                i++;
-            
-            }
+
+            } while (!guess.Equals("15"));
            
         }
     }
