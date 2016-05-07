@@ -11,30 +11,40 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            int[] randNumArray;
+            List<int> numList = new List<int>();
 
-            int[] randArray = new int[5];
+            numList.Add(5);
+            numList.Add(15);
+            numList.Add(25);
 
-            int[] randArray2 = { 1, 2, 3, 4, 5 };
+            int[] randArray = { 1, 2, 3, 4, 5 };
+            numList.AddRange(randArray);
 
-            int[,] multArray = new int[5, 3];
+            List<int> numList2 = new List<int>(randArray);
 
-            int[,] multArray2 = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
+            List<int> numList3 = new List<int>(new int[] { 1, 2, 3, 4 });
 
-            foreach (int num in multArray2)
+            numList.Insert(1, 10);
+
+            numList.Remove(5);
+
+            numList.RemoveAt(2);
+
+            for (int i = 0; i < numList.Count; i++)
             {
-                Console.WriteLine(num);
+                Console.WriteLine(numList[i]);
             }
 
-            for (int x = 0; x< multArray2.GetLength(0); x++)
-            {
-                for (int y = 0; y < multArray2.GetLength(1); y++)
-                {
-                    Console.WriteLine("{0} | {1} :{2}", x, y, multArray2[x, y]);
-                }
-                
-            }
-            
+            Console.WriteLine("4 is in index "+ numList3.IndexOf(4));
+
+            Console.WriteLine("5 in List " + numList.Contains(5));
+
+            List<string> strList = new List<string>(new string[] { "Tom", "Paul" });
+
+            Console.WriteLine("Tom in list " + strList.Contains("tom",
+                StringComparer.OrdinalIgnoreCase));
+
+            strList.Sort();
 
         }
     }
