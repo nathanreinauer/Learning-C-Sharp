@@ -11,25 +11,21 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            Console.WriteLine("5 + 3 = " + (5 + 3));
-            Console.WriteLine("5-3 =" + (5 - 3));
-            Console.WriteLine("5 * 3 = " + (5 * 3));
-            Console.WriteLine("5/3 =" + (5 / 3));
-            Console.WriteLine("5.2%3="+(5.2%3));
+            int age = 17;
 
-            int i = 0;
+            if ((age >= 5) && (age <= 7))
+            {
+                Console.WriteLine("Go to elementary school");
+            }
+            else if ((age > 7) && (age < 13))
+            {
+                Console.WriteLine("Go to middle school");
+            }
+            else
+            {
+                Console.WriteLine("Go to elementary school");
+            }
 
-            Console.WriteLine("i++ = " + (i++));
-            Console.WriteLine("++i =" + (++i));
-            Console.WriteLine("i-- = " + (i--));
-            Console.WriteLine("--i =" + (--i));
-
-            Console.WriteLine("i+=3" + (i+=3));
-            Console.WriteLine("i-=2" + (i-=2));
-            Console.WriteLine("i*=2" + (i*=2));
-            Console.WriteLine("i/=2" + (i/=2));
-            Console.WriteLine("i%=2" + (i%=2));
-            
 
         }
     }
