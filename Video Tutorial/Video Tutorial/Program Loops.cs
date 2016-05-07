@@ -11,14 +11,25 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            StringBuilder sb = new StringBuilder();
+            int[] randNumArray;
 
-            sb.Append("This is the first sentence. ");
-            sb.AppendFormat("My name is {0} and I live in {1} ", "Derek", "Pennsylvania");
-            sb.Replace("a", "e");
-            sb.Remove(5, 7);
+            int[] randArray = new int[5];
 
-            Console.WriteLine(sb.ToString());
+            int[] randArray2 = { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine("Array length " + randArray2.Length);
+
+            Console.WriteLine("Item 0 " + randArray2[0]);
+
+            for (int i = 0; i < randArray2.Length; i++)
+            {
+                Console.WriteLine("{0} : {1}", i, randArray2[i]);
+            }
+
+            foreach (int num in randArray2)
+            {
+                Console.WriteLine(num);
+            }
 
         }
     }
