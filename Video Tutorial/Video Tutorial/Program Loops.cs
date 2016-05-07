@@ -10,13 +10,16 @@ namespace Video_Tutorial
     {
         static void Main(string[] args)
         {
-            string randString = "Here are some random characters";
 
-            foreach (char c in randString)
-            {
-                Console.WriteLine(c);
-            }
-           
+            string sampleString = "A bunch of random words.";
+
+            Console.WriteLine("Is empty " + String.IsNullOrEmpty(sampleString));
+
+            Console.WriteLine("Is empty " + String.IsNullOrWhiteSpace(sampleString));
+
+            Console.WriteLine("String length " + sampleString.Length);
+
+
         }
     }
 }
