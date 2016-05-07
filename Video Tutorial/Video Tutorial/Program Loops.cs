@@ -17,19 +17,16 @@ namespace Video_Tutorial
 
             int[] randArray2 = { 1, 2, 3, 4, 5 };
 
-            Console.WriteLine("Array length " + randArray2.Length);
+            Console.WriteLine("Where is 1 "+ Array.IndexOf(randArray2, 1));
 
-            Console.WriteLine("Item 0 " + randArray2[0]);
+            string[] names = { "Tom", "Paul", "Sally" };
 
-            for (int i = 0; i < randArray2.Length; i++)
-            {
-                Console.WriteLine("{0} : {1}", i, randArray2[i]);
-            }
+            string nameStr = string.Join(",", names);
 
-            foreach (int num in randArray2)
-            {
-                Console.WriteLine(num);
-            }
+            string[] nameArray = nameStr.Split(',');
+            
+
+            
 
         }
     }
