@@ -10,19 +10,26 @@ namespace Video_Tutorial
     {
         static void Main(string[] args)
         {
-            bool canVote = true;
 
-            char grade = 'A';
+            Console.WriteLine("5 + 3 = " + (5 + 3));
+            Console.WriteLine("5-3 =" + (5 - 3));
+            Console.WriteLine("5 * 3 = " + (5 * 3));
+            Console.WriteLine("5/3 =" + (5 / 3));
+            Console.WriteLine("5.2%3="+(5.2%3));
 
-            int maxInt = int.MaxValue;
-            long maxLong = long.MaxValue;
-            decimal maxDec = decimal.MaxValue;
-            float maxFloat = float.MaxValue;
-            double maxDouble = double.MaxValue;
+            int i = 0;
 
-            Console.WriteLine("Max Int: " + maxDouble);
-            var anotherName = "Tom";
+            Console.WriteLine("i++ = " + (i++));
+            Console.WriteLine("++i =" + (++i));
+            Console.WriteLine("i-- = " + (i--));
+            Console.WriteLine("--i =" + (--i));
 
+            Console.WriteLine("i+=3" + (i+=3));
+            Console.WriteLine("i-=2" + (i-=2));
+            Console.WriteLine("i*=2" + (i*=2));
+            Console.WriteLine("i/=2" + (i/=2));
+            Console.WriteLine("i%=2" + (i%=2));
+            
 
         }
     }
