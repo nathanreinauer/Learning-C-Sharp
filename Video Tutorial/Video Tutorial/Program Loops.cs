@@ -11,13 +11,19 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            string sampleString = "A bunch of random words.";
+            string sampleString = "A bunch of random words";
 
-            Console.WriteLine("Is empty " + String.IsNullOrEmpty(sampleString));
+            Console.WriteLine("Index of bunch " +sampleString.IndexOf("bunch"));
 
-            Console.WriteLine("Is empty " + String.IsNullOrWhiteSpace(sampleString));
+            Console.WriteLine("2nd Word " + sampleString.Substring(2, 6));
 
-            Console.WriteLine("String length " + sampleString.Length);
+            string sampString2 = "More random words";
+
+            Console.WriteLine("Strings equal " + sampleString.Equals(sampString2));
+
+            Console.WriteLine("Starts with \"A bunch\"" + sampleString.StartsWith("A bunch"));
+
+            Console.WriteLine("Ends with " + sampleString.EndsWith("words"));
 
 
         }
