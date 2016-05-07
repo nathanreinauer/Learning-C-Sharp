@@ -11,14 +11,14 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            string sampString = "A bunch of random words";
+            StringBuilder sb = new StringBuilder();
 
-            string sampString2 = "More random words";
+            sb.Append("This is the first sentence. ");
+            sb.AppendFormat("My name is {0} and I live in {1} ", "Derek", "Pennsylvania");
+            sb.Replace("a", "e");
+            sb.Remove(5, 7);
 
-            string fmtStr = String.Format("{0:c} {1:00.00} {2:#.00} {3:0,0}", 1.56, 15.567, .56, 1000);
-
-            Console.WriteLine(fmtStr);
-
+            Console.WriteLine(sb.ToString());
 
         }
     }
