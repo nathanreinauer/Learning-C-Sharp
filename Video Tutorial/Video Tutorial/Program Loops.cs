@@ -10,16 +10,12 @@ namespace Video_Tutorial
     {
         static void Main(string[] args)
         {
+            string randString = "Here are some random characters";
 
-            string guess;
-            do
+            foreach (char c in randString)
             {
-                Console.WriteLine("Guess a number ");
-                guess = Console.ReadLine();
-
-
-
-            } while (!guess.Equals("15"));
+                Console.WriteLine(c);
+            }
            
         }
     }
