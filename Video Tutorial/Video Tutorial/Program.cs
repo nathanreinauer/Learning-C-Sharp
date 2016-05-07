@@ -31,6 +31,21 @@ namespace Video_Tutorial
                 Console.WriteLine("You shouldn't work");
             }
 
+            switch (age)
+            {
+                case 0:
+                    Console.WriteLine("Infant");
+                    break;
+                case 1:
+                case 2:
+                    Console.WriteLine("Toddler");
+                default:
+                    Console.WriteLine("Child");
+                    break;
+            }
+
+            
+
 
         }
     }
