@@ -15,14 +15,9 @@ namespace Video_Tutorial
 
             string sampString2 = "More random words";
 
-            sampString = sampString.Replace("words", "characters");
+            string fmtStr = String.Format("{0:c} {1:00.00} {2:#.00} {3:0,0}", 1.56, 15.567, .56, 1000);
 
-            sampString = sampString.Remove(0, 2);
-
-            string[] names = new string[3] { "Matt", "Joe", "Paul" };
-            Console.WriteLine("Name List " + String.Join(", ", names));
-
-            
+            Console.WriteLine(fmtStr);
 
 
         }
