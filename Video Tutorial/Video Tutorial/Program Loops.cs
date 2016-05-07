@@ -17,15 +17,23 @@ namespace Video_Tutorial
 
             int[] randArray2 = { 1, 2, 3, 4, 5 };
 
-            Console.WriteLine("Where is 1 "+ Array.IndexOf(randArray2, 1));
+            int[,] multArray = new int[5, 3];
 
-            string[] names = { "Tom", "Paul", "Sally" };
+            int[,] multArray2 = { { 0, 1 }, { 2, 3 }, { 4, 5 } };
 
-            string nameStr = string.Join(",", names);
+            foreach (int num in multArray2)
+            {
+                Console.WriteLine(num);
+            }
 
-            string[] nameArray = nameStr.Split(',');
-            
-
+            for (int x = 0; x< multArray2.GetLength(0); x++)
+            {
+                for (int y = 0; y < multArray2.GetLength(1); y++)
+                {
+                    Console.WriteLine("{0} | {1} :{2}", x, y, multArray2[x, y]);
+                }
+                
+            }
             
 
         }
