@@ -23,7 +23,12 @@ namespace Video_Tutorial
             }
             else
             {
-                Console.WriteLine("Go to elementary school");
+                Console.WriteLine("Go to high school");
+            }
+
+            if ((age < 14) || (age > 67))
+            {
+                Console.WriteLine("You shouldn't work");
             }
 
 
