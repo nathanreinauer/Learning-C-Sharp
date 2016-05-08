@@ -6,29 +6,56 @@ using System.Threading.Tasks;
 
 namespace Video_Tutorial
 {
-    class Program
+    class Animal
     {
+        public double height { get; set; }
+        public double weight { get; set; }
+        public string sound { get; set; }
+
+        public string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public Animal()
+        {
+            this.height = 0;
+            this.weight = 0;
+            this.name = "No Name";
+            this.sound = "No Sound";
+            numOfAnimals++;
+        }
+
+        public Animal(double height, double weight, string name, string sound)
+        {
+            this.height = height;
+            this.weight = weight;
+            this.name = name;
+            this.sound = sound;
+            numOfAnimals++;
+        }
+
+        static int numOfAnimals = 0;
+
+        public static int getNumOfAnimals()
+        {
+            return numOfAnimals;
+        }
+
+        public string toString()
+        {
+            return String.Format("{0} is {1} inches tall, weighs {2} lbs and likes to say {3}", name, height, weight, sound);
+        }
+
         static void Main(string[] args)
         {
-            try
-            {
-                Console.Write("Divide 10 by ");
-                int num = int.Parse(Console.ReadLine());
-                Console.WriteLine("10 / {0} = {1}", num, (10 / num));
-            }
+            Animal spot = new Animal(15, 10, "Spot", "Woof");
 
-            catch (DivideByZeroException ex)
-            {
-                Console.WriteLine("Can't divide by zero");
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-               
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.GetType().Name);
-                Console.WriteLine(ex.Message);
-            }
+            Console.WriteLine("{0} says {1}", spot.name, spot.sound);
+            Console.WriteLine("Number of Animals " + Animal.getNumOfAnimals());
+            Console.WriteLine(spot.toString());
 
         }
     }
