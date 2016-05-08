@@ -56,34 +56,15 @@ namespace Video_Tutorial
 
         static void Main(string[] args)
         {
-            Animal spot = new Animal(15, 10, "Spot", "Woof");
+            Shape rect = new Rectangle(5, 5);
+            Shape tri = new Triangle(5, 5);
 
-            Console.WriteLine("{0} says {1}", spot.name, spot.sound);
+            Console.WriteLine("Rect Area " + rect.area());
+            Console.WriteLine("Tri Area " + tri.area());
 
-            Console.WriteLine("Number of Animals " + Animal.getNumOfAnimals());
+            Rectangle combRect = new Rectangle(5, 5) + new Rectangle(5, 5);
 
-            Console.WriteLine(spot.toString());
-
-            Console.WriteLine(spot.getSum(1.4, 2.7));
-
-            Animal grover = new Animal
-            {
-                name = "Grover",
-                height = 16,
-                weight = 18,
-                sound = "Grrrr"
-            };
-
-            Dog spike = new Dog();
-
-            Console.WriteLine(spike.toString());
-
-            spike = new Dog(20, 15, "Spike", "Grrrrrr", "Chicken");
-
-            Console.WriteLine(spike.toString());
-
-
-
+            Console.WriteLine("combRect Area " + combRect.area());
         }
     }
 
@@ -104,9 +85,71 @@ namespace Video_Tutorial
 
         new public string toString()
         {
-            return String.Format("{0} is {1} inches tall, weighs {2} lbs and likes to say {3} and eats {4}", 
-                name, height, weight, sound,favFood);
+            return String.Format("{0} is {1} inches tall, weighs {2} lbs and likes to say {3} and eats {4}",
+                name, height, weight, sound, favFood);
 
         }
+    }
+
+    abstract class Shape
+    {
+        public abstract double area();
+
+        public void sayHi()
+        {
+            Console.WriteLine("Hello");
+        }
+    }
+
+    public interface ShapeItem
+    {
+        double area();
+    }
+
+    class Rectangle : Shape
+    {
+
+        private double length;
+        private double width;
+
+        public Rectangle(double num1, double num2)
+        {
+            length = num1;
+            width = num2;
+        }
+
+        public override double area()
+        {
+            return length * width;
+        }
+
+        public static Rectangle operator +(Rectangle rect1, Rectangle rect2)
+        {
+            double rectLength = rect1.length + rect2.length;
+            double rectWidth = rect1.width + rect2.width;
+
+            return new Rectangle(rectLength, rectWidth);
+        }
+
+
+    }
+
+    class Triangle : Shape
+    {
+
+        private double theBase;
+        private double height;
+
+        public Triangle(double num1, double num2)
+        {
+            theBase = num1;
+            height = num2;
+        }
+
+        public override double area()
+        {
+            return .5 * (theBase * height);
+        }
+
     }
 }
