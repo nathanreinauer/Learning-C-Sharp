@@ -4,45 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+delegate double GetSum(double num1, double num2);
+
 namespace Video_Tutorial
 {
 
-    struct Customers
-    {
-        private string name;
-        private double balance;
-        private int id;
 
-        public void createCust(string n, double b, int i)
-        {
-
-            name = n;
-            balance = b;
-            id = i;
-
-        }
-
-        public void showCust()
-        {
-            Console.WriteLine("Name " + name);
-            Console.WriteLine("Balance " + balance);
-            Console.WriteLine("Id " + id);
-        }
-    }
 
     class Animal
     {
-
         static void Main(string[] args)
         {
+            GetSum sum = delegate (double num1, double num2)
+            {
+                return num1 + num2;
 
-            Customers bob = new Customers();
+            };
 
-            bob.createCust("Bob", 15.50, 12345);
-
-            bob.showCust();
-
-
+            Console.WriteLine("5 + 10 =" + sum(5, 10));
         }
     }
 }
