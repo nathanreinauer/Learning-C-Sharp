@@ -16,9 +16,15 @@ namespace Video_Tutorial
         static void Main(string[] args)
         {
 
-            Func<int, int, int> getSum = (x, y) => x + y;
+            List<int> numList = new List<int> { 5, 10, 15, 20, 25 };
 
-            Console.WriteLine("5 + 3 = " + getSum.Invoke(5, 3));
+            List<int> oddNums = numList.Where(n => n % 2 == 1).ToList();
+
+            foreach (int num in oddNums)
+            {
+                Console.WriteLine(num);
+            }
+
 
         }
     }
