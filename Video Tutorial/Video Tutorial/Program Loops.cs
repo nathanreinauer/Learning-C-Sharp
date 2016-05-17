@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,22 +10,30 @@ delegate double GetSum(double num1, double num2);
 namespace Video_Tutorial
 {
 
-
-
     class Animal
     {
         static void Main(string[] args)
         {
 
-            List<int> numList = new List<int> { 5, 10, 15, 20, 25 };
+            string[] custs = new string[] { "Tom", "Paul", "Greg" };
 
-            List<int> oddNums = numList.Where(n => n % 2 == 1).ToList();
-
-            foreach (int num in oddNums)
+            using (StreamWriter sw = new StreamWriter("custs.txt"))
             {
-                Console.WriteLine(num);
+                foreach (string cust in custs)
+                {
+                    sw.WriteLine(cust);
+                }
             }
 
+            string custName = "";
+            using (StreamReader sr = new StreamReader("custs.txt"))
+            {
+                while ((custName = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(custName);
+                }
+
+            }
 
         }
     }
