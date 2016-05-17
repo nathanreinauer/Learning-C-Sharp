@@ -56,15 +56,21 @@ namespace Video_Tutorial
 
         static void Main(string[] args)
         {
-            Shape rect = new Rectangle(5, 5);
-            Shape tri = new Triangle(5, 5);
+            KeyValue<string, string> superman = new KeyValue<string, string>("", "");
 
-            Console.WriteLine("Rect Area " + rect.area());
-            Console.WriteLine("Tri Area " + tri.area());
+            superman.key = "Superman!";
+            superman.value = "Clark Kent!";
 
-            Rectangle combRect = new Rectangle(5, 5) + new Rectangle(5, 5);
+            KeyValue<int, string> samsungTV = new KeyValue<int, string>(0, "");
 
-            Console.WriteLine("combRect Area " + combRect.area());
+            samsungTV.key = 12345;
+            samsungTV.value = "a 50 in Samsung TV";
+
+            superman.showData();
+
+            samsungTV.showData();
+
+
         }
     }
 
@@ -166,7 +172,7 @@ namespace Video_Tutorial
 
         public void showData()
         {
-            Console.WriteLine("{0} is {1} " + this.key, this.value);
+            Console.WriteLine("{0} is {1} ", this.key, this.value);
         }
     }
 
