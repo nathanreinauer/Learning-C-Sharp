@@ -10,18 +10,30 @@ namespace LINQ_tutorial
     {
         static void Main(string[] args)
         {
-            var sample = "I enjoy writing uber-software in C#";
+            var people = new List<Person>
+            {
+                new Person { FirstName = "John", LastName = "Doe", Age = 25},
+                new Person { FirstName = "Jane", LastName = "Doe", Age = 26},
+                new Person { FirstName = "John", LastName = "Williams", Age = 40},
+                new Person { FirstName = "Samantha", LastName = "Williams", Age = 35},
+                new Person { FirstName = "Bob", LastName = "Walters", Age = 12},
+            };
 
-            var results = from c in sample.ToLower()
-                          where c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-                          orderby c
-                          group c by c;
+            var results = from p in people
+                          select p;
                           
 
             foreach (var item in results)
             {
-                Console.WriteLine("{0} - {1}", item.Key, item.Count());
+                Console.WriteLine("{0} - {1}", item.FirstName, item.LastName);
             }
         }
+    }
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
     }
 }
