@@ -26,7 +26,7 @@ namespace LINQ_tutorial
 
             foreach (var item in results)
             {
-                Console.WriteLine(item.Key);
+                Console.WriteLine(item.Key + " - " + item.Count());
                 foreach (var p in item)
                 {
                     Console.WriteLine("\t{0}, {1}", p.LastName, p.FirstName);
