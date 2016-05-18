@@ -14,6 +14,7 @@ namespace LINQ_tutorial
 
             var results = from c in sample.ToLower()
                           where c == 'a' || c =='e' || c=='i'||c=='o'||c=='u'
+                          orderby c descending
                           select c;
 
             foreach (var item in results)
