@@ -12,7 +12,8 @@ namespace LINQ_tutorial
         {
             var sample = "I enjoy writing uber-software in C#";
 
-            var results = from c in sample
+            var results = from c in sample.ToLower()
+                          where c == 'a' || c =='e' || c=='i'||c=='o'||c=='u'
                           select c;
 
             foreach (var item in results)
