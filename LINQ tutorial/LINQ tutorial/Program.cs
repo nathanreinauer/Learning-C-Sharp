@@ -20,12 +20,17 @@ namespace LINQ_tutorial
             };
 
             var results = from p in people
-                          select p;
+                          orderby p.LastName descending
+                          group p by p.LastName;
                           
 
             foreach (var item in results)
             {
-                Console.WriteLine("{0} - {1}", item.FirstName, item.LastName);
+                Console.WriteLine(item.Key);
+                foreach (var p in item)
+                {
+                    Console.WriteLine("\t{0}, {1}", p.LastName, p.FirstName);
+                }
             }
         }
     }
