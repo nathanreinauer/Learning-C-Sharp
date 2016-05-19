@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace JamieKingTutorial
+class MyClass
 {
-    class Program
+    static void AMethod()
     {
-        static void Main(string[] args)
-        {
-        }
+        Console.WriteLine("this is the first line in the method");
+        Console.WriteLine("this is the second line in the method");
+        Console.WriteLine("this is the third line in the method");
+
+    }
+    static void Main()
+    {
+        
     }
 }
