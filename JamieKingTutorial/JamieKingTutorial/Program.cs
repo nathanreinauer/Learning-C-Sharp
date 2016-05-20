@@ -1,31 +1,29 @@
 ﻿using System;
+using System.Data.Entity;
 
-class Person
+class Video
 {
-    public string FirstName;
-    public string LastName;
-    public string MiddleName;
-    public int Age;
+    public string Title { get; set; }
+    public string Description { get; set; }
 }
 
-class MyClass
+class MeContext : DbContext
+{
+    public MeContext() : base()
+    {
+
+    }
+}
+
+class MainClass
 {
     static void Main()
     {
-        Person myTeacher = new Person
+        var vid = new Video
         {
-            FirstName = "Jamie",
-            LastName = "King",
-            MiddleName = "Blobber",
-            Age = 55
-        };
-        Person aStudent = new Person
-        {
-            FirstName = "Chris",
-            LastName = "Bobson",
+            Title = "Hello World Entity Framework",
+            Description = "Learn about the entity framework"
         };
 
-        Console.WriteLine(myTeacher.FirstName);
-        Console.WriteLine(myTeacher.Age);
     }
 }
