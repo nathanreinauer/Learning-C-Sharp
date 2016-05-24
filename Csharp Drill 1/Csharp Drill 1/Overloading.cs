@@ -17,13 +17,11 @@ namespace Csharp_Drill_1
             return first + second;
         }
     }
-    class Program
+    class Overloading1
     {
         static void Main(string[] args)
         {
-            Example adding = new Example();
-            Console.WriteLine(adding.add(1,1,1));
-            Console.WriteLine(adding.add(1,2));
+
         }
     }
 }
