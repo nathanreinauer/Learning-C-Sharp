@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Net;
 
 namespace AssembliesAndNamespaces
 {
@@ -12,10 +13,12 @@ namespace AssembliesAndNamespaces
         static void Main(string[] args)
         {
 
-            string text = "We want to write this to our file.";
+            WebClient client = new WebClient();
+            string reply = client.DownloadString("http://sunsettheatre.com");
 
-            File.WriteAllText(@"C:\Users\Student\Desktop\WriteText.txt", text);
-            Console.WriteLine("Hello world!");
+            Console.WriteLine(reply);
+
+            File.WriteAllText(@"C:\Users\Student\Desktop\WriteText.txt", reply);
             Console.ReadLine();
         }
     }
