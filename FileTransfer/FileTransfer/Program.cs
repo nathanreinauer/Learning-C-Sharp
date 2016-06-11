@@ -23,20 +23,19 @@ namespace FileTransfer
             if (answer == "y")
             {
                 Console.WriteLine("Okay, here goes nuthin'!");
+                // Run transfer method on new files
+                //Console.WriteLine("Operation completed.");
             }
             else if (answer == "n")
             {
-                Console.WriteLine("Sad. You make me sad.");
+                Console.WriteLine("See yah.");
+                // Ask Exit? or Restart?
             }
             else
             {
-                Console.WriteLine("WTF was that?");
+                Console.WriteLine("Sorry?");
+                // Restart
             }
-        
-
-                
-            
-
         }
     }
     class ModifiedFiles
@@ -52,6 +51,16 @@ namespace FileTransfer
             var files = directory.GetFiles()
               .Where(file => file.LastWriteTime >= from_date && file.LastWriteTime <= to_date);
             return files.ToList();
+
+
+            // Copy the files and overwrite destination files if they already exist.
+            foreach (var f in files)
+            {
+                // Use static Path methods to extract only the file name from the path.
+                fileName = System.IO.Path.GetFileName(s);
+                destFile = System.IO.Path.Combine(targetPath, fileName);
+                System.IO.File.Copy(s, destFile, true);
+            }
         }
     }
 }
