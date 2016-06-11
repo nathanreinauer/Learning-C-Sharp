@@ -9,6 +9,11 @@ namespace FileTransfer
 {
     class Program
     {
+        private static string destFile;
+        private static string fileName;
+        private static string targetPath;
+        
+
         static void Main(string[] args)
         {
             Console.WriteLine("These files in Customer Orders are new:");
@@ -23,13 +28,25 @@ namespace FileTransfer
             if (answer == "y")
             {
                 Console.WriteLine("Okay, here goes nuthin'!");
-                // Run transfer method on new files
-                //Console.WriteLine("Operation completed.");
+
+                targetPath = @"C:\Users\Student\Desktop\Home Office";
+                foreach (var file in newFiles.modified()) 
+                    File.Copy(file.FullName, Path.Combine(targetPath, file.Name), true);
+
             }
             else if (answer == "n")
             {
-                Console.WriteLine("See yah.");
-                // Ask Exit? or Restart?
+                Console.WriteLine("Would you like to exit the program? y/n");
+                string answerExit = Console.ReadLine();
+                if (answerExit == "y")
+                {
+                    Console.WriteLine("See yah!");
+                    Environment.Exit(0);
+                }
+                else
+                {
+
+                }
             }
             else
             {
@@ -44,7 +61,7 @@ namespace FileTransfer
 
         public IEnumerable<FileInfo> modified()
         {
-            your_dir = @"C:\Users\Student\Desktop\Customer Orders";
+            your_dir = @"C:\Users\Student\Desktop\Customer Orders\";
             var directory = new DirectoryInfo(your_dir);
             DateTime from_date = DateTime.Now.AddDays(-1);
             DateTime to_date = DateTime.Now;
@@ -54,13 +71,7 @@ namespace FileTransfer
 
 
             // Copy the files and overwrite destination files if they already exist.
-            foreach (var f in files)
-            {
-                // Use static Path methods to extract only the file name from the path.
-                fileName = System.IO.Path.GetFileName(s);
-                destFile = System.IO.Path.Combine(targetPath, fileName);
-                System.IO.File.Copy(s, destFile, true);
-            }
+
         }
     }
 }
