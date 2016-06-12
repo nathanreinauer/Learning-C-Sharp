@@ -9,59 +9,51 @@ namespace FileTransfer
 {
     class Program
     {
-
         private static string targetPath;
         public static bool running;
-
 
         static void Main(string[] args)
         {
             var function = new Functions();
             running = true;
+            int num = 0;
+
             while (running)
             {
+
                 Console.WriteLine("These files in Customer Orders are new:");
                 ModifiedFiles newFiles = new ModifiedFiles();
+                num = 0;
+
                 foreach (var file in newFiles.modified())
                 {
-                    Console.WriteLine(file);
+                    Console.WriteLine("\""+file+"\"");
+                    num++;
                 }
-                Console.WriteLine("Transfer them to Home Office? y/n");
+
+                Console.WriteLine("Transfer {0} file(s) to Home Office? y/n", num);
                 string answer = Console.ReadLine();
 
                 if (answer == "y")
                 {
                     targetPath = @"C:\Users\Student\Desktop\Home Office";
-                    int num = 0;
 
+                    num = 0;
                     foreach (var file in newFiles.modified())
                     {
                         File.Copy(file.FullName, Path.Combine(targetPath, file.Name), true);
                         num++;
                     }
 
-                    Console.WriteLine("{0} files transfered.", num);
-                    break;
-
+                    Console.WriteLine("{0} file(s) transfered.", num);
+                    function.exit();
                 }
+
                 else if (answer == "n")
                 {
-                    Console.WriteLine("Would you like to exit the program? y/n");
-                    string answerExit = Console.ReadLine();
-                    if (answerExit == "y")
-                    {
-                        Console.WriteLine("See yah!");
-                        break;
-                    }
-                    else if (answerExit == "n")
-                    {
-                        // Loop back to beginning
-                    }
-                    else
-                    {
-                        function.wrong();
-                    }
+                    function.exit();
                 }
+
                 else
                 {
                     function.wrong();
@@ -71,27 +63,41 @@ namespace FileTransfer
     }   
     class ModifiedFiles
     {
-        public string your_dir;
-
+        public string sourceDir;
         public IEnumerable<FileInfo> modified()
         {
-            your_dir = @"C:\Users\Student\Desktop\Customer Orders\";
-            var directory = new DirectoryInfo(your_dir);
+            sourceDir = @"C:\Users\Student\Desktop\Customer Orders\";
+            var directory = new DirectoryInfo(sourceDir);
             DateTime from_date = DateTime.Now.AddDays(-1);
             DateTime to_date = DateTime.Now;
             var files = directory.GetFiles()
               .Where(file => file.LastWriteTime >= from_date && file.LastWriteTime <= to_date);
             return files.ToList();
-
-
-            // Copy the files and overwrite destination files if they already exist.
-
         }
-
     }
     class Functions
-    {
+    { 
         public void wrong() { Console.WriteLine("---Input must be 'y' or 'n'."); }
+
+        public void exit()
+        {
+            Console.WriteLine("Would you like to exit the program? y/n");
+            string answerExit = Console.ReadLine();
+            if (answerExit == "y")
+            {
+                Console.WriteLine("See yah!");
+                Environment.Exit(0);
+            }
+            else if (answerExit == "n")
+            {
+                // Loop back to beginning
+            }
+            else
+            {
+                this.wrong();
+            }
+
+        }               
     }
 }
 
