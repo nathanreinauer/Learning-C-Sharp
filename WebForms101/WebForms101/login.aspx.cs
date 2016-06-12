@@ -18,5 +18,10 @@ namespace WebForms101
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            lblName.Text = txtLast.Text + ", " + txtFirst.Text;
+        }
     }
 }

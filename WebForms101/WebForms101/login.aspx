@@ -5,20 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #form1 {
+            height: 200px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
     
-        First Name:<asp:TextBox ID="TextBox1" runat="server" Height="16px" style="margin-left: 31px" Width="165px"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" Text="First Name:"></asp:Label>
+        <asp:TextBox ID="txtFirst" runat="server" Height="16px" style="margin-left: 31px" Width="165px"></asp:TextBox>
     
     </div>
         <p>
-            Last Name:<asp:TextBox ID="TextBox2" runat="server" style="margin-left: 33px" Width="161px"></asp:TextBox>
+            <asp:Label ID="Label2" runat="server" Text="Last Name:"></asp:Label>
+            <asp:TextBox ID="txtLast" runat="server" style="margin-left: 33px" Width="161px"></asp:TextBox>
         </p>
-        <asp:Button ID="Button1" runat="server" Text="Login" />
+        <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Login" />
         <p>
-            <asp:TextBox ID="TextBox3" runat="server" Width="222px"></asp:TextBox>
+            <asp:Label ID="lblName" runat="server" BorderStyle="Inset" Width="260px"></asp:Label>
         </p>
     </form>
 </body>
