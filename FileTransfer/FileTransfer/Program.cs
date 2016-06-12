@@ -9,52 +9,66 @@ namespace FileTransfer
 {
     class Program
     {
-        private static string destFile;
-        private static string fileName;
+
         private static string targetPath;
-        
+        public static bool running;
+
 
         static void Main(string[] args)
         {
-            Console.WriteLine("These files in Customer Orders are new:");
-            ModifiedFiles newFiles = new ModifiedFiles();
-            foreach (var file in newFiles.modified())
+            var function = new Functions();
+            running = true;
+            while (running)
             {
-                Console.WriteLine(file);
-            }
-            Console.WriteLine("Transfer them to Home Office? y/n");
-            string answer = Console.ReadLine();
-
-            if (answer == "y")
-            {
-                Console.WriteLine("Okay, here goes nuthin'!");
-
-                targetPath = @"C:\Users\Student\Desktop\Home Office";
-                foreach (var file in newFiles.modified()) 
-                    File.Copy(file.FullName, Path.Combine(targetPath, file.Name), true);
-
-            }
-            else if (answer == "n")
-            {
-                Console.WriteLine("Would you like to exit the program? y/n");
-                string answerExit = Console.ReadLine();
-                if (answerExit == "y")
+                Console.WriteLine("These files in Customer Orders are new:");
+                ModifiedFiles newFiles = new ModifiedFiles();
+                foreach (var file in newFiles.modified())
                 {
-                    Console.WriteLine("See yah!");
-                    Environment.Exit(0);
+                    Console.WriteLine(file);
+                }
+                Console.WriteLine("Transfer them to Home Office? y/n");
+                string answer = Console.ReadLine();
+
+                if (answer == "y")
+                {
+                    targetPath = @"C:\Users\Student\Desktop\Home Office";
+                    int num = 0;
+
+                    foreach (var file in newFiles.modified())
+                    {
+                        File.Copy(file.FullName, Path.Combine(targetPath, file.Name), true);
+                        num++;
+                    }
+
+                    Console.WriteLine("{0} files transfered.", num);
+                    break;
+
+                }
+                else if (answer == "n")
+                {
+                    Console.WriteLine("Would you like to exit the program? y/n");
+                    string answerExit = Console.ReadLine();
+                    if (answerExit == "y")
+                    {
+                        Console.WriteLine("See yah!");
+                        break;
+                    }
+                    else if (answerExit == "n")
+                    {
+                        // Loop back to beginning
+                    }
+                    else
+                    {
+                        function.wrong();
+                    }
                 }
                 else
                 {
-
+                    function.wrong();
                 }
             }
-            else
-            {
-                Console.WriteLine("Sorry?");
-                // Restart
-            }
         }
-    }
+    }   
     class ModifiedFiles
     {
         public string your_dir;
@@ -73,5 +87,11 @@ namespace FileTransfer
             // Copy the files and overwrite destination files if they already exist.
 
         }
+
+    }
+    class Functions
+    {
+        public void wrong() { Console.WriteLine("---Input must be 'y' or 'n'."); }
     }
 }
+
