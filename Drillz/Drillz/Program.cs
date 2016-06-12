@@ -10,8 +10,11 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int age = 20;
-            Console.WriteLine("You are {0} years old.", age);
+            int num = 0;
+            while (num < 5){
+                Console.WriteLine("*****");
+                num++;
+            }
         }
     }
 }
