@@ -10,11 +10,15 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int num = 0;
-            while (num < 5){
-                Console.WriteLine("*****");
-                num++;
-            }
+            int num1 = 10;
+            float num2 = 12.5f;
+            string msg = "C# Programming";
+
+            Console.WriteLine(num1);
+            Console.WriteLine(num2);
+            Console.WriteLine(msg);
+
+
         }
     }
 }
