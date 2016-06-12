@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,16 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int age = 20;
-            Console.WriteLine("You are {0} years old.", age);
+            int x = 10;
+            int y = 5;
+            Console.WriteLine("x = {0}", x = y + 3);
+            Console.WriteLine("x = {0}", x = y - 2);
+            Console.WriteLine("x = {0}", x = y * 5);
+            x = 10;
+            Console.WriteLine("x = {0}", x = x / y);
+            x = 10;
+            Console.WriteLine("x = {0}", x = x % y);
+
         }
     }
 }
