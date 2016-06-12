@@ -11,17 +11,19 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int y = 5;
-            int x = 10;
-            Console.WriteLine("x = {0}", x += y);
-            x = 10;
-            Console.WriteLine("x = {0}", x -= y - 2);
-            x = 10;
-            Console.WriteLine("x = {0}", x *= y * 5);
-            x = 10;
-            Console.WriteLine("x = {0}", x /= x / y);
-            x = 10;
-            Console.WriteLine("x = {0}", x %= y);
+            Console.WriteLine("Enter a number: ");
+            int a = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("The value of a is {0}.", a);
+            Console.WriteLine("...............");
+            Console.WriteLine("The value of a is {0}.", ++a);
+            Console.WriteLine("The value of a is {0}.", a);
+            Console.WriteLine("The value of a is {0}.", a++);
+            Console.WriteLine("The value of a is {0}.", a);
+            Console.WriteLine("The value of a is {0}.", --a);
+            Console.WriteLine("The value of a is {0}.", a);
+            Console.WriteLine("The value of a is {0}.", a--);
+            Console.WriteLine("The value of a is {0}.", a);
 
         }
     }
