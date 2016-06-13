@@ -9,30 +9,35 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            bool found = false;
+            Console.WriteLine("Choose a number to search for.");
+            int input = int.Parse(Console.ReadLine());
+
             int[] arr = new int[10]
             {
-                23, 2, 3, 34, 6,1,24,45,78,8
+                23, 2, 3, 34, 6, 1, 24, 45, 78, 8
             };
-
-            int length = arr.Length;
-
-            Console.WriteLine("Choose a number to search for:");
-            int search = int.Parse(Console.ReadLine());
-
-            for (int i = 0; i < length; i++)
+            int[] arr2 = arr.OrderBy(x => x).ToArray();
+            Console.WriteLine("Found {0} at position {1}.", input, BinarySearchIterative(arr2, input, 0, arr.Length));
+        }
+        public static object BinarySearchIterative(int[] inputArray, int key, int min, int max)
+        {
+            while (min <= max)
             {
-                if (arr[i] == search)
+                int mid = (min + max) / 2;
+                if (key == inputArray[mid])
                 {
-                    Console.WriteLine("Your number is at position {0}.", i);
-                    found = true;
+                    return ++mid;
+                }
+                else if (key < inputArray[mid])
+                {
+                    max = mid - 1;
+                }
+                else
+                {
+                    min = mid + 1;
                 }
             }
-            if (!found)
-            {
-                Console.WriteLine("Number not found.");
-            }
-
+            return "Nil";
         }
     }
 }
