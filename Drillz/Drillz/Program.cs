@@ -11,16 +11,26 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int i = 1;
+            string play = "y";
+            Random rand = new Random();
+            int random = rand.Next(1, 10);
+
             do
             {
-                Console.Write((char)i + "\t");
-                if (i % 10 == 0)
-                    Console.WriteLine("\n");
+                Console.WriteLine("Guess a random number between 1 and 10.");
+                int guess = int.Parse(Console.ReadLine());
+                if (guess == random)
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine("Nope. Enter 'y' to try again.");
+                    play = Console.ReadLine();
+                }
 
-                i++;
-            } while (i <= 122);
 
+            } while (play == "y");
         }
     }
 }
