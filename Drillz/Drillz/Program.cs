@@ -9,27 +9,46 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            printMatrix();
+            int size;
+
+            Console.Write("Pascal triangle size:");
+
+            size = Int32.Parse(Console.ReadLine());
+
+            printPascalTr(size);
 
             Console.ReadLine();
         }
-        public static void printMatrix()
+        public static void printPascalTr(int size)
         {
-            int[,] matrix = new int[5, 5];
+            int[,] PascalTr = new int[size, size];
+            int row, col;
 
-            int i, j;
+            for (row = 0; row < size; row++)
+                for (col = 0; col < size; col++) PascalTr[row, col] = 0;
 
-            for (i = 0; i < 5; i++) 
-                for (j = 0; j < 5; j++)
-                { 
-                    if (i == j) matrix[i, j] = 0;
-                    else if (i > j) matrix[i, j] = -1;
-                    else matrix[i, j] = 1;
-                }
-            for (i = 0; i < 5; i++)
+            PascalTr[0, 0] = 1;
+
+            PascalTr[1, 0] = 1;
+
+            PascalTr[1, 1] = 1;
+
+            for (row = 2; row < size; row++)
             {
-                for (j = 0; j < 5; j++)
-                    Console.Write("{0}\t", matrix[i, j]);
+                PascalTr[row, 0] = 1;
+
+                for (col = 1; col <= row; col++)
+                {
+                    PascalTr[row, col] = PascalTr[row - 1, col - 1] + PascalTr[row - 1, col];
+                }
+            }
+
+            for (row = 0; row < size; row++)
+            {
+                for (col = 0; col <= row; col++)
+                {
+                    Console.Write("{0}\t", PascalTr[row, col]);
+                }
                 Console.WriteLine();
             }
         }
