@@ -1,9 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Drillz
 {
@@ -11,26 +9,24 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            string play = "y";
-            Random rand = new Random();
-            int random = rand.Next(1, 10);
+            int[] arr = { 42, 11, 54, 700, 32, 659, 240, 9 };
 
-            do
+            int temp = 0;
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Guess a random number between 1 and 10.");
-                int guess = int.Parse(Console.ReadLine()); 
-                if (guess == random)
+                for (int sort = 0; sort < arr.Length - 1; sort++)
                 {
-                    Console.WriteLine("Correct!");
-                    Console.WriteLine("Press 'y' to play again.");
-                    random = rand.Next(1, 10);
-                    play = Console.ReadLine();
+                    if (arr[sort] > arr[sort + 1])
+                    {
+                        temp = arr[sort + 1];
+                        arr[sort + 1] = arr[sort];
+                        arr[sort] = temp;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Nope! Try again.");               
-                }
-            } while (play == "y");
+            }
+            for (int i = 0; i < arr.Length; i++)
+                Console.WriteLine(arr[i] + " ");
         }
     }
 }
