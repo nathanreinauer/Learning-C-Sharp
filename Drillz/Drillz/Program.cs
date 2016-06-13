@@ -9,33 +9,27 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            printArray();
+            printMatrix();
 
             Console.ReadLine();
         }
-
-        public static void printArray()
+        public static void printMatrix()
         {
-            int[,] tArr = new int[5, 5];
+            int[,] matrix = new int[5, 5];
 
             int i, j;
 
-            for (i = 0; i < 5; i++)
+            for (i = 0; i < 5; i++) 
                 for (j = 0; j < 5; j++)
-                {
-                    if (i == 0) tArr[i, j] = j + 1;
-                    else if (i > 0 && j == 0)
-
-                        tArr[i, j] = tArr[i - 1, 4] + 1;
-                    else
-                        tArr[i, j] = tArr[i, j - 1] + 1;
+                { 
+                    if (i == j) matrix[i, j] = 0;
+                    else if (i > j) matrix[i, j] = -1;
+                    else matrix[i, j] = 1;
                 }
-
             for (i = 0; i < 5; i++)
-            { 
+            {
                 for (j = 0; j < 5; j++)
-                    Console.Write("{0}\t", tArr[i, j]);
-
+                    Console.Write("{0}\t", matrix[i, j]);
                 Console.WriteLine();
             }
         }
