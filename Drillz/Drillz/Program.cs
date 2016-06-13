@@ -11,17 +11,26 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int i, j, k;
+            bool run = true;
 
-            for (i = 1; i <= 7; i++)
+            while (run)
             {
-                for (j = 1; j <= i; ++j)
-                    Console.Write(j);
+                Console.WriteLine("What is the command keyword to exit a loop in C#?");
+                Console.WriteLine("a. int");
+                Console.WriteLine("b. continue");
+                Console.WriteLine("c. break");
+                Console.WriteLine("d. exit");
 
-                for (k = 7 - i; k >= 1; k--)
-                    Console.Write("*");
+                var answer = Console.ReadLine();
 
-                Console.WriteLine("\n");
+                switch (answer)
+                {
+                    case "a": Console.WriteLine("Incorrect."); break;
+                    case "b": Console.WriteLine("Incorrect."); break;
+                    case "c": Console.WriteLine("Correct!"); run = false; break;
+                    case "d": Console.WriteLine("Incorrect!"); break;
+                    default: Console.WriteLine("Invalid input."); break;
+                }
             }
         }
     }
