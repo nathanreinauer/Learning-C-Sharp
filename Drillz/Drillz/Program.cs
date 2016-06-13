@@ -11,10 +11,16 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int i, j;
-            for (i = 0; i <= 6; i++)
+            int i, j, k;
+
+            for (i = 1; i <= 7; i++)
             {
-                for (j = 1; j <= 7 - i; j++) Console.Write("*");
+                for (j = 1; j <= i; ++j)
+                    Console.Write(j);
+
+                for (k = 7 - i; k >= 1; k--)
+                    Console.Write("*");
+
                 Console.WriteLine("\n");
             }
         }
