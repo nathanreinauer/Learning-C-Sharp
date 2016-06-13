@@ -11,8 +11,29 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            int age = 20;
-            Console.WriteLine("You are {0} years old.", age);
+            Console.WriteLine("Enter a value for 'a'.");
+            int a = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter a different value for 'b'.");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter a different value for 'c'.");
+            int c = int.Parse(Console.ReadLine());
+
+            if (a > b && a > c)
+            {
+                Console.WriteLine("{0} (a) is the largest number.", a);
+            }
+            else if (b > a && a > c)
+            {
+                Console.WriteLine("{0} (b) is the largest number.", b);
+            }
+            else if (c > a && c > b)
+            {
+                Console.WriteLine("{0} (c) is the largest number.", c);
+            }
+            else
+            {
+                Console.WriteLine("You did not enter different values!");
+            }
         }
     }
 }
