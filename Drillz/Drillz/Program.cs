@@ -18,7 +18,7 @@ namespace Drillz
             do
             {
                 Console.WriteLine("Guess a random number between 1 and 10.");
-                int guess = int.Parse(Console.ReadLine());
+                int guess = int.Parse(Console.ReadLine()); 
                 if (guess == random)
                 {
                     Console.WriteLine("Correct!");
