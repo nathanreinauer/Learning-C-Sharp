@@ -11,46 +11,22 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Press a key from 0 to 9.");
-            char num = char.Parse(Console.ReadLine());
-            switch (num)
+            Console.WriteLine("What is the correct way to declare a variable to store an integer value in C#?");
+            Console.WriteLine("a. int 1x=10;");
+            Console.WriteLine("b. int x=10;");
+            Console.WriteLine("c. float x=10.0f;");
+            Console.WriteLine("d. string x=\"10\";");
+
+            var answer = Console.ReadLine();
+            
+            switch (answer)
             {
-                case ('0'):
-                    Console.WriteLine("You pressed 2.");
-                    break;
-                case ('1'):
-                    Console.WriteLine("You pressed 1.");
-                    break;
-                case ('2'):
-                    Console.WriteLine("You pressed 2.");
-                    break;
-                case ('3'):
-                    Console.WriteLine("You pressed 3.");
-                    break;
-                case ('4'):
-                    Console.WriteLine("You pressed 4.");
-                    break;
-                case ('5'):
-                    Console.WriteLine("You pressed 5.");
-                    break;
-                case ('6'):
-                    Console.WriteLine("You pressed 6.");
-                    break;
-                case ('7'):
-                    Console.WriteLine("You pressed 7.");
-                    break;
-                case ('8'):
-                    Console.WriteLine("You pressed 8.");
-                    break;
-                case ('9'):
-                    Console.WriteLine("You pressed 9.");
-                    break;
-                default:
-                    Console.WriteLine("Not allowed!");
-                    break;
-            }
-            
-            
+                case "a": Console.WriteLine("Incorrect."); break;
+                case "b": Console.WriteLine("Correct!"); break;
+                case "c": Console.WriteLine("Incorrect."); break;
+                case "d": Console.WriteLine("Incorrect."); break;
+                default: Console.WriteLine("Invalid input."); break;
+            }   
         }
     }
 }
