@@ -11,26 +11,16 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            string choice;
-            string con = "y";
-            Console.WriteLine("a.quit");
-            Console.WriteLine("b.continue");
-            Console.WriteLine("c.break");
-            Console.WriteLine("d.exit");
-
+            int i = 1;
             do
             {
-                Console.Write("What is the command keyword to exit a loop in C#?");
-                choice = Console.ReadLine();
+                Console.Write((char)i + "\t");
+                if (i % 10 == 0)
+                    Console.WriteLine("\n");
 
-                if (choice == "c")
-                {
-                    Console.WriteLine("Correct!");
-                }
-                else Console.WriteLine("Incorrect.");
-                Console.Write("Press 'y' to play again.");
-                con = Console.ReadLine().ToString();
-            } while (con == "y");
+                i++;
+            } while (i <= 122);
+
         }
     }
 }
