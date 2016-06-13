@@ -7,29 +7,31 @@ namespace Drillz
 {
     class Program
     {
-        private static int[] arr2;
-
         static void Main(string[] args)
         {
-            int[] arr = { 42, 11, 54, 700, 32, 659, 240, 9 };
-
-            int temp = 0;
-
-            for (int i = 0; i < arr.Length; i++)
+            bool found = false;
+            int[] arr = new int[10]
             {
-                for (int sort = 0; sort < arr.Length - 1; sort++)
+                23, 2, 3, 34, 6,1,24,45,78,8
+            };
+
+            int length = arr.Length;
+
+            Console.WriteLine("Choose a number to search for:");
+            int search = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < length; i++)
+            {
+                if (arr[i] == search)
                 {
-                    if (arr[sort] > arr[sort + 1])
-                    {
-                        temp = arr[sort + 1];
-                        arr[sort + 1] = arr[sort];
-                        arr[sort] = temp;
-                    }
+                    Console.WriteLine("Your number is at position {0}.", i);
+                    found = true;
                 }
             }
-            arr2 = arr.OrderByDescending(x => x).ToArray();
-            for (int i = 0; i < arr.Length; i++)
-                Console.WriteLine(arr2[i] + " ");
+            if (!found)
+            {
+                Console.WriteLine("Number not found.");
+            }
 
         }
     }
