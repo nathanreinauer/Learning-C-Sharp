@@ -11,28 +11,29 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a value for 'a'.");
-            int a = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter a different value for 'b'.");
-            int b = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter a different value for 'c'.");
-            int c = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the quiz score.");
+            float quiz = float.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the mid-term score.");
+            float midTerm = float.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the final score.");
+            float final = float.Parse(Console.ReadLine());
 
-            if (a > b && a > c)
+            float score = (quiz + midTerm + final) / 3;
+            if (score >= 90)
             {
-                Console.WriteLine("{0} (a) is the largest number.", a);
+                Console.WriteLine("Overall grade is A.");
             }
-            else if (b > a && a > c)
+            else if (score >= 70)
             {
-                Console.WriteLine("{0} (b) is the largest number.", b);
+                Console.WriteLine("Overall grade is B.");
             }
-            else if (c > a && c > b)
+            else if (score >= 50)
             {
-                Console.WriteLine("{0} (c) is the largest number.", c);
+                Console.WriteLine("Overall grade is C.");
             }
             else
             {
-                Console.WriteLine("You did not enter different values!");
+                Console.WriteLine("Overall grade is F.");
             }
         }
     }
