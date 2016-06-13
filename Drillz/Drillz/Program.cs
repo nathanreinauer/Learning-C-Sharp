@@ -11,20 +11,8 @@ namespace Drillz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number: ");
-            int a = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("The value of a is {0}.", a);
-            Console.WriteLine("...............");
-            Console.WriteLine("The value of a is {0}.", ++a);
-            Console.WriteLine("The value of a is {0}.", a);
-            Console.WriteLine("The value of a is {0}.", a++);
-            Console.WriteLine("The value of a is {0}.", a);
-            Console.WriteLine("The value of a is {0}.", --a);
-            Console.WriteLine("The value of a is {0}.", a);
-            Console.WriteLine("The value of a is {0}.", a--);
-            Console.WriteLine("The value of a is {0}.", a);
-
+            int age = 20;
+            Console.WriteLine("You are {0} years old.", age);
         }
     }
 }
