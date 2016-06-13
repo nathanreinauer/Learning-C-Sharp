@@ -22,14 +22,14 @@ namespace Drillz
                 if (guess == random)
                 {
                     Console.WriteLine("Correct!");
+                    Console.WriteLine("Press 'y' to play again.");
+                    random = rand.Next(1, 10);
+                    play = Console.ReadLine();
                 }
                 else
                 {
-                    Console.WriteLine("Nope. Enter 'y' to try again.");
-                    play = Console.ReadLine();
+                    Console.WriteLine("Nope! Try again.");               
                 }
-
-
             } while (play == "y");
         }
     }
