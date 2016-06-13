@@ -7,6 +7,8 @@ namespace Drillz
 {
     class Program
     {
+        private static int[] arr2;
+
         static void Main(string[] args)
         {
             int[] arr = { 42, 11, 54, 700, 32, 659, 240, 9 };
@@ -25,8 +27,10 @@ namespace Drillz
                     }
                 }
             }
+            arr2 = arr.OrderByDescending(x => x).ToArray();
             for (int i = 0; i < arr.Length; i++)
-                Console.WriteLine(arr[i] + " ");
+                Console.WriteLine(arr2[i] + " ");
+
         }
     }
 }
