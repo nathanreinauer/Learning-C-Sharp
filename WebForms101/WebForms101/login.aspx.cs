@@ -21,7 +21,12 @@ namespace WebForms101
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            lblName.Text = txtLast.Text + ", " + txtFirst.Text;
+            /*lblName.Text = txtLast.Text + ", " + txtFirst.Text;*/
+        }
+
+        protected void BulletedList1_Click(object sender, BulletedListEventArgs e)
+        {
+
         }
     }
 }

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies SPA</title>
+</head>
+<body>
+    <ul data-bind="foreach: genres">
+        <li>
+            <a href="#" data-bind="click: $parent.getByGenre">
+                <span data-bind="text: $data"></span>
+            </a>
+        </li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><!-- Title --></td>
+                <td><!-- Year --></td>
+                <td><!-- Rating --></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><!-- Error message --></p>
+    <p>No records found.</p>
+</body>
+</html>
